@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SECOURS — Les bons gestes. Au bon moment.</title>
+<meta name="description" content="Une expérience interactive de sensibilisation aux premiers secours. Elle ne remplace ni une formation pratique, ni les services d'urgence.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23b71c1c'/%3E%3Cpath d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#app">Aller au contenu</a>
+
+<noscript>
+  <p style="padding:1.5rem;font:1.1rem system-ui">Ce site nécessite JavaScript. En cas d'urgence réelle, contactez immédiatement les services d'urgence de votre pays.</p>
+</noscript>
+
+<!-- Introduction cinématique -->
+<div id="intro" role="dialog" aria-modal="true" aria-labelledby="intro-brand">
+  <button class="intro-sound" id="intro-sound" type="button" aria-pressed="false"></button>
+  <div class="intro-in">
+    <h1 id="intro-brand" class="intro-brand i1">SECOURS</h1>
+    <p class="intro-tag i2">Les bons gestes. Au bon moment.</p>
+    <p class="intro-line i3">Une urgence peut arriver n'importe où.<br>À la maison. Dans la rue. À l'école. Au travail.</p>
+    <p class="intro-q i4">Seriez-vous prêt à réagir ?</p>
+    <p class="i5"><button id="intro-go" class="btn btn-primary" type="button">COMMENCER</button></p>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#/" aria-label="SECOURS — accueil">SECOURS</a>
+    <nav id="nav" class="nav" aria-label="Navigation principale">
+      <a href="#/" data-r="accueil">ACCUEIL</a>
+      <a href="#/apprendre" data-r="apprendre">APPRENDRE</a>
+      <a href="#/simuler" data-r="simuler">SIMULER</a>
+      <a href="#/quiz" data-r="quiz">QUIZ</a>
+      <a href="#/trousse" data-r="trousse">TROUSSE</a>
+      <a href="#/sources" data-r="sources">SOURCES</a>
+      <button class="nav-urg" type="button" data-act="urgence">🚨 URGENCE</button>
+    </nav>
+    <button id="sound" class="sound" type="button" aria-pressed="false"></button>
+    <button id="menu" class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">MENU</button>
+  </div>
+</header>
+
+<main id="app" class="wrap" tabindex="-1"></main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="f-brand">SECOURS</p>
+    <p>Les bons gestes. Au bon moment.</p>
+    <p class="f-links">
+      <button type="button" class="linkbtn" data-act="warning">Avertissement</button>
+      <a href="#/infos">Informations &amp; limites</a>
+      <a href="#/confidentialite">Confidentialité</a>
+      <a href="#/sources">Sources</a>
+      <button type="button" class="linkbtn" data-act="lite" id="lite" aria-pressed="false"></button>
+    </p>
+    <p class="f-nld">Une expérience digitale conçue par NLD<br><span>Web Design • Development • Digital Experiences</span></p>
+  </div>
+</footer>
+
+<button id="sos" class="fab" type="button" data-act="urgence">🚨 URGENCE</button>
+
+<dialog id="dlg-warning" aria-labelledby="w-t">
+  <div class="dlg">
+    <h2 id="w-t">AVANT DE COMMENCER</h2>
+    <p>Ce site propose des informations générales de sensibilisation aux premiers secours. Il ne remplace ni une formation pratique, ni un professionnel de santé, ni les services d'urgence.</p>
+    <p><strong>En situation d'urgence réelle, contactez immédiatement les services d'urgence de votre pays et suivez leurs instructions.</strong></p>
+    <p><button id="w-ok" class="btn btn-primary" type="button">J'AI COMPRIS</button></p>
+  </div>
+</dialog>
+
+<dialog id="dlg-emergency" aria-labelledby="e-t">
+  <div class="dlg urg">
+    <h2 id="e-t">URGENCE</h2>
+    <ol class="urg-steps">
+      <li><span>1</span>Mettez-vous en sécurité.</li>
+      <li><span>2</span>Évaluez rapidement la situation.</li>
+      <li><span>3</span>Alertez les services d'urgence si nécessaire.</li>
+      <li><span>4</span>Suivez leurs instructions.</li>
+    </ol>
+    <div class="urg-country">
+      <label for="ctry">Votre pays</label>
+      <select id="ctry"></select>
+    </div>
+    <div id="urg-numbers" aria-live="polite"></div>
+    <p><button id="e-close" class="btn btn-ghost" type="button">FERMER</button></p>
+  </div>
+</dialog>
+
+<script src="js/data/config.js"></script>
+<script src="js/data/sources.js"></script>
+<script src="js/data/topics.js"></script>
+<script src="js/data/scenarios.js"></script>
+<script src="js/data/extras.js"></script>
+<script src="js/figures.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
